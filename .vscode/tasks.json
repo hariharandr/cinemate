@@ -1,0 +1,17 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Apache Error",
+      "type": "shell",
+      "command": "sudo tail -f /var/log/apache2/error.log",
+      "problemMatcher": []
+    },
+    {
+      "label": "Apache Logs",
+      "type": "shell",
+      "command": "sudo tail -f /var/log/apache2/access.log",
+      "problemMatcher": []
+    }
+  ]
+}
