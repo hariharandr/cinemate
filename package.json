@@ -1,0 +1,5 @@
+{
+  "devDependencies": {
+    "grunt-dart-sass": "^2.0.1"
+  }
+}

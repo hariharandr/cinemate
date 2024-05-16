@@ -1,0 +1,4 @@
+# Grunt Cache
+/workspace/grunt/.tmp
+/workspace/imdb_datasets/
+/workspace/grunt/.sass-cache
