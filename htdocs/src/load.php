@@ -1,5 +1,25 @@
    <?php
     require_once __DIR__ . '/../vendor/autoload.php';
+    include_once __DIR__ . '/lib/includes/Session.class.php';
+    include_once __DIR__ . '/lib/includes/Database.class.php';
+    include_once __DIR__ . '/lib/includes/WebAPI.class.php';
+
+    global $__site_config;
+
+    $wapi = new WebAPI();
+    $wapi->initiateSession();
+
+    // Just gets the config file from the workspace folder
+    function get_config($key, $default = null)
+    {
+        global $__site_config;
+        $array = json_decode($__site_config, true);
+        if (isset($array[$key])) {
+            return $array[$key];
+        } else {
+            return $default;
+        }
+    }
 
     /**
      * When $general is set to true, the lookup happen fromn the root of the template, that is the template folder itself.
@@ -49,4 +69,15 @@
         } else {
             return basename($file, '.php');
         }
+    }
+
+    /**
+     * This method has to be called from the caller file from the htdocs root.
+     * It is essencial for the page to get loaded.
+     * @return null
+     */
+    function loadMaster($_data = array())
+    {
+        extract($_data, EXTR_SKIP);
+        include __DIR__ . '/../../template/_master.php';
     }

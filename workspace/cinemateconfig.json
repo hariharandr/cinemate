@@ -1,0 +1,7 @@
+{
+	"db_server": "mongodb.selfmade.ninja",
+	"db_username": "jawahar",
+	"db_password": "password",
+	"db_name": "jawahar_cinemate",
+	"base_path": "/"
+}
