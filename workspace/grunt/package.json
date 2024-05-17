@@ -1,0 +1,26 @@
+{
+  "name": "cinemate",
+  "version": "0.0.1",
+  "description": "movie review page",
+  "main": "Gruntfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "grunt": "^1.5.3",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-obfuscator": "^8.0.0",
+    "grunt-contrib-uglify": "^5.2.2",
+    "grunt-contrib-watch": "^1.1.0",
+    "grunt-notify": "^0.4.5",
+    "grunt-sass": "^3.1.0",
+    "javascript-obfuscator": "^4.1.0"
+  },
+  "dependencies": {
+    "clean": "^4.0.2",
+    "node-sass": "^9.0.0"
+  }
+}
