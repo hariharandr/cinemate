@@ -10,4 +10,12 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         })
         .catch(error => console.error('Error loading the movies:', error));
+
+    // masonry initialization
+    let moviesContainer = document.getElementById('moviesContainer');
+    let msnry = new Masonry(moviesContainer, {
+        itemSelector: '.movie_card',
+        columnWidth: 200
+    });
+    msnry.layout();
 });

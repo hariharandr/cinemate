@@ -1,3 +1,27 @@
-.movies {
+.movie_card {
   cursor: pointer;
+  // width: 100%;
+  margin-bottom: 1rem;
+}
+
+.card-body {
+  overflow: hidden;
+}
+
+.card-title {
+  font-size: 1.25rem;
+}
+
+.card-subtitle {
+  font-size: 1rem;
+  color: #6c757d;
+}
+
+.card-text {
+  font-size: 0.9rem;
+  margin-top: 0.25rem;
+}
+
+.card-text strong {
+  color: #343a40;
 }

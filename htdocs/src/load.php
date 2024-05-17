@@ -3,6 +3,7 @@
     include_once __DIR__ . '/lib/includes/Session.class.php';
     include_once __DIR__ . '/lib/includes/Database.class.php';
     include_once __DIR__ . '/lib/includes/WebAPI.class.php';
+    include_once __DIR__ . '/lib/Movies.class.php';
 
     global $__site_config;
 
@@ -33,9 +34,13 @@
         extract($_data, EXTR_SKIP);
         //This function returns the current script to build the template path.
         $_general = strpos($_template, '/') === 0;
+        // echo $_template;
         if ($_template == '_error') {
             include __DIR__ . '/template/' . $_template . '.php';
         } elseif ($_general) {
+            // echo $_general;
+            // echo '<br>';
+            // echo __DIR__ . '/template/' . $_template . '.php';
             if (!file_exists(__DIR__ . '/template/' . $_template . '.php')) {
                 $bt = debug_backtrace();
                 $caller = array_shift($bt);
@@ -43,6 +48,10 @@
             }
             include __DIR__ . '/template/' . $_template . '.php';
         } else {
+            // echo $_general;
+            // echo '<br>';
+            // echo __DIR__ . '/template/' . $_template . '.php';
+            // echo $_source;
             if (!file_exists(__DIR__ . '/template/' . $_source . '/' . $_template . '.php')) {
                 $bt = debug_backtrace();
                 $caller = array_shift($bt);

@@ -14,10 +14,18 @@ require_once 'src/load.php';
 
 <body>
     <? loadTemplate('header'); ?>
-    <? loadTemplate('/movies'); ?>
+    <?php
+    $movies = Movies::getMovies(); // Fetch the first page of movies
+
+    loadTemplate('/movies/movies', ['movies' => $movies]);
+
+    ?>
     <? loadTemplate('footer'); ?>
     <script src="./js/app.min.js"></script>
+    <!-- Bootstrap CDN -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Masonry CDN -->
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
 </body>
 
 </html>
