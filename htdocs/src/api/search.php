@@ -11,7 +11,7 @@ $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
 $limit = isset($_GET['limit']) ? (int)$_GET['limit'] : 10;
 
 // Call the search function from the Movies class
-$results = Movies::searchMoview($search_term, $limit, $page);
+$results = ContentManager::searchMoview($search_term, $limit, $page);
 
 // Set header to application/json for proper client-side handling
 header('Content-Type: application/json');

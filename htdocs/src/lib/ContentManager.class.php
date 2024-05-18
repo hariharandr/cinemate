@@ -1,35 +1,27 @@
 <?php
-class Movies
+class ContentManager
 {
+    // Database connection setup should be configured to get MongoDB connection
+    private static function getConnection()
+    {
+        return Database::getConnection();
+    }
+
+    // Fetch Movies
     public static function getMovies($page = 1, $limit = 10)
     {
         $skip = ($page - 1) * $limit;
-        try {
-            $collection = Database::getConnection()->selectCollection('title_basics');
-
-            $pipeline = [
-                [
-                    '$match' => [
-                        'primaryTitle' => [
-                            '$exists' => true,
-                            '$ne' => '',
-                        ],
-                        'titleType' => 'movie'
-                    ]
-                ],
-                [
-                    '$limit' => $limit
-                ],
-                [
-                    '$skip' => $skip
-                ]
-            ];
-            $cursor = $collection->aggregate($pipeline);
-            $data = $cursor->toArray();
-            return $data;
-        } catch (MongoDB\Driver\Exception\Exception $e) {
-            return ['error' => $e->getMessage()];
-        }
+        $collection = self::getConnection()->selectCollection('title_basics');
+        $query = [
+            'titleType' => 'movie'
+        ];
+        $options = [
+            'limit' => $limit,
+            'skip' => $skip,
+            'sort' => ['startYear' => -1] // Sorting by year in descending order
+        ];
+        $cursor = $collection->find($query, $options);
+        return $cursor->toArray();
     }
 
 
@@ -94,5 +86,42 @@ class Movies
         } catch (MongoDB\Driver\Exception\Exception $e) {
             return ['error' => $e->getMessage()];
         }
+    }
+
+    // Fetch TV Episodes
+    public static function getEpisodes($page = 1, $limit = 10)
+    {
+        $skip = ($page - 1) * $limit;
+        $collection = self::getConnection()->selectCollection('title_basics');
+        $query = [
+            'titleType' => 'tvEpisode'
+        ];
+        $options = [
+            'limit' => $limit,
+            'skip' => $skip,
+            'sort' => ['startYear' => -1]
+        ];
+        $cursor = $collection->find($query, $options);
+        return $cursor->toArray();
+    }
+
+    // Fetch Cast and Crew
+    public static function getCast($page = 1, $limit = 10)
+    {
+        $skip = ($page - 1) * $limit;
+        $collection = self::getConnection()->selectCollection('title_principals');
+        $pipeline = [
+            ['$lookup' => [
+                'from' => 'name_basics',
+                'localField' => 'nconst',
+                'foreignField' => 'nconst',
+                'as' => 'person_info'
+            ]],
+            ['$unwind' => '$person_info'],
+            ['$limit' => $limit],
+            ['$skip' => $skip]
+        ];
+        $cursor = $collection->aggregate($pipeline);
+        return $cursor->toArray();
     }
 }

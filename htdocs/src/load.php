@@ -3,7 +3,7 @@
     include_once __DIR__ . '/lib/includes/Session.class.php';
     include_once __DIR__ . '/lib/includes/Database.class.php';
     include_once __DIR__ . '/lib/includes/WebAPI.class.php';
-    include_once __DIR__ . '/lib/Movies.class.php';
+    include_once __DIR__ . '/lib/ContentManager.class.php';
 
     global $__site_config;
 
