@@ -1,6 +1,5 @@
 <?php
 require_once '../../src/load.php';
-header('Content-Type: application/json');
 
 $search_term = isset($_GET['query']) ? $_GET['query'] : '';
 $type = isset($_GET['type']) ? $_GET['type'] : 'all';  // Default is 'all'
@@ -12,20 +11,22 @@ $results = ContentManager::searchMoview($search_term, $type, $page, $limit);
 
 // based on the type loadtemplate loads either movies, episodes, or casts
 if ($type === 'movies') {
-    loadTemplate('/movies/movies', ['movies' => $results]);
+    foreach ($results as $movie) {
+        loadTemplate('/movies/movie_cards/movie', ['movie' => $movie]);
+    }
 } elseif ($type === 'episodes') {
-    loadTemplate('/episodes/episodes', ['episodes' => $results]);
+    loadTemplate('/episodes/episodes', ['episode' => $results]);
 } elseif ($type === 'casts') {
-    loadTemplate('/cast/casts', ['casts' => $results]);
+    loadTemplate('/cast/cast_cards/cast', ['cast' => $results]);
 } else {
     // if all load based on each type and send the results
     foreach ($results as $type => $result) {
         if ($type === 'movies') {
-            loadTemplate('/movies/movies', ['movies' => $result]);
+            loadTemplate('/movies/movie_cards/movie', ['movies' => $result]);
         } elseif ($type === 'episodes') {
-            loadTemplate('/episodes/episodes', ['episodes' => $result]);
+            loadTemplate('/episodes/episode_cards/episode', ['episode' => $result]);
         } elseif ($type === 'casts') {
-            loadTemplate('/cast/casts', ['casts' => $result]);
+            loadTemplate('/casts/cast_cards/cast', ['cast' => $result]);
         }
     }
 }

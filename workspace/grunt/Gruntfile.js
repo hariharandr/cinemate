@@ -7,7 +7,11 @@ module.exports = function (grunt) {
                 sourceMap: true,
             },
             dist: {
-                src: ["../js/*.js", "../js/**/*.js"],
+                src: [
+                    "node_modules/jquery/dist/jquery.min.js",
+                    "../js/*.js",
+                    "../js/**/*.js"
+                ],
                 dest: "../../htdocs/js/app.js",
             },
         },

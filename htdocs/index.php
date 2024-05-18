@@ -19,7 +19,7 @@ require_once 'src/load.php';
     <div class="container main-container">
         <?php loadTemplate('/movies/movies'); ?>
         <?php loadTemplate('/episodes/episodes'); ?>
-        <?php loadTemplate('/cast/cast'); ?>
+        <?php loadTemplate('/cast/casts'); ?>
     </div>
     <? loadTemplate('footer'); ?>
     <script src="./js/app.js"></script>

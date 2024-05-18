@@ -23,14 +23,14 @@
                 </ul>
                 <div class="search-container mx-5">
                     <div class="input-group">
-                        <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">All</button>
+                        <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Movies</button>
                         <ul class="dropdown-menu dropdown-menu-end">
-                            <li><a class="dropdown-item" href="#">All</a></li>
-                            <li><a class="dropdown-item" href="#">Movies</a></li>
-                            <li><a class="dropdown-item" href="#">TV Episodes</a></li>
-                            <li><a class="dropdown-item" href="#">Cast</a></li>
+                            <li><a class="dropdown-item" href="#" data-typ="all">All</a></li>
+                            <li><a class="dropdown-item" href="#" data-type="movies">Movies</a></li>
+                            <li><a class="dropdown-item" href="#" data-type="episode">TV Episodes</a></li>
+                            <li><a class="dropdown-item" href="#" data-type="cast">Cast</a></li>
                         </ul>
-                        <input type="text" class="form-control" placeholder="Search..." aria-label="Text input with dropdown button">
+                        <input type="text" id="search-input" class="form-control" placeholder="Search..." aria-label="Text input with dropdown button">
                     </div>
 
                 </div>

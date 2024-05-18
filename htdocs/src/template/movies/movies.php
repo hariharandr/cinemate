@@ -1,6 +1,7 @@
-<div id="movies-container" class="content-container">
+<div id="movies-container" class="content-container" data-attribute="movies">
     <h2 class="content-title">Movies</h2>
-    <div class="movies-list content-list">
+    <div id="temp-movies-list" class="temp-content-list"></div>
+    <div id="movies-content-list" class=" content-list">
         <?php
         $movies = ContentManager::getMovies();
         foreach ($movies as $movie) : ?>

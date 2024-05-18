@@ -1,5 +1,7 @@
-<div id="episodes-container" class="content-container">
+<div id="episodes-container" class="content-container" data-attribute="episodes">
     <h2 class="content-title">TV Episodes</h2>
+    <div id="temp-episodes-list" class="temp-content-list"></div>
+
     <div class="episodes-list content-list">
         <?php
         $episodes = ContentManager::getEpisodes();

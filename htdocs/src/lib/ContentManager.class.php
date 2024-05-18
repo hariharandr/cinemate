@@ -13,7 +13,7 @@ class ContentManager
         $cacheFile = '/home/Jawahar.s/cache/movies' . $page . '.json'; // Define cache file path
 
         // Check if cache file exists and is not too old
-        if (file_exists($cacheFile) && (time() - filemtime($cacheFile)) < 604800) { // Cache duration 1 week
+        if (file_exists($cacheFile)) { // Cache duration 1 week
             return json_decode(file_get_contents($cacheFile), true); // Return data from cache
         } else {
             $skip = ($page - 1) * $limit;
@@ -68,26 +68,28 @@ class ContentManager
                 ]],
                 ['$group' => [
                     '_id' => '$tconst',
-                    'title' => ['$first' => '$primaryTitle'],
+                    'primaryTitle' => ['$first' => '$primaryTitle'],
                     'originalTitle' => ['$first' => '$originalTitle'],
                     'genres' => ['$first' => '$genres'],
-                    'year' => ['$first' => '$startYear'],
-                    'runtime' => ['$first' => '$runtimeMinutes'],
-                    'type' => ['$first' => '$titleType'],
+                    'startYear' => ['$first' => '$startYear'],
+                    'runtimeMinutes' => ['$first' => '$runtimeMinutes'],
+                    'titleType' => ['$first' => '$titleType'],
                     'ratings' => ['$first' => '$ratings.averageRating'],
                     'votes' => ['$first' => '$ratings.numVotes'],
-                    'cast_and_crew' => ['$addToSet' => '$cast_details.primaryName']
+                    'cast_and_crew' => ['$addToSet' => '$cast_details.primaryName'],
                 ]],
                 ['$project' => [
                     '_id' => 0,
-                    'title' => 1,
+                    'primaryTitle' => 1,
                     'originalTitle' => 1,
-                    'genres' => 1, 'year' => 1,
-                    'runtime' => 1,
-                    'type' => 1,
+                    'genres' => 1,
+                    'startYear' => 1,
+                    'runtimeMinutes' => 1,
+                    'titleType' => 1,
                     'ratings' => 1,
                     'votes' => 1,
-                    'cast_and_crew' => 1
+                    'cast_and_crew' => 1,
+                    'isAdult' => 1
                 ]]
             ];
 
@@ -110,7 +112,7 @@ class ContentManager
         $cacheFile = '/home/Jawahar.s/cache/episodes_page_' . $page . '.json'; // Define cache file path
 
         // Check if cache file exists and is not too old
-        if (file_exists($cacheFile) && (time() - filemtime($cacheFile)) < 604800) { // Cache duration 1 week
+        if (file_exists($cacheFile)) { // Cache duration 1 week
             return json_decode(file_get_contents($cacheFile), true); // Return data from cache
         } else {
             $skip = ($page - 1) * $limit;
@@ -140,7 +142,8 @@ class ContentManager
         $cacheFile = '/home/Jawahar.s/cache/cast' . $page . '.json'; // Define cache file path
 
         // Check if cache file exists and is not too old
-        if (file_exists($cacheFile) && (time() - filemtime($cacheFile)) < 604800) { // Cache duration 1 week
+        if (file_exists($cacheFile)) { // Cache duration 1 week
+
             return json_decode(file_get_contents($cacheFile), true); // Return data from cache
         } else {
             $skip = ($page - 1) * $limit;

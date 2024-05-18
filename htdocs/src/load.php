@@ -40,7 +40,7 @@
         } elseif ($_general) {
             // echo $_general;
             // echo '<br>';
-            // echo __DIR__ . '/template/' . $_template . '.php';
+            // echo __DIR__ . '/template/' . $_ template . '.php';
             if (!file_exists(__DIR__ . '/template/' . $_template . '.php')) {
                 $bt = debug_backtrace();
                 $caller = array_shift($bt);
