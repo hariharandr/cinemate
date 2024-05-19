@@ -1,7 +1,12 @@
-@import "variables";
+@import "../base/breakpoints.scss";
 
 .search-container {
   .input-group {
+    .form-control {
+      @include lg {
+        margin-left: 5px;
+      }
+    }
     .form-control,
     .dropdown-toggle {
       background-color: #2c2c2c;
