@@ -1,5 +1,5 @@
 <div id="casts-container" class="content-container" data-attribute="casts">
-    <h2 class="content-title">Cast & Crew</h2>
+    <h2 class="content-title"><a href="#" class="text-white me-2"><i class="fas fa-users" aria-hidden="true"></i></a> Cast & Crew</h2>
     <div id="temp-cast-list" class="temp-content-list"></div>
     <div class="cast-list content-list">
         <?php

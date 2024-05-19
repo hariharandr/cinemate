@@ -1,0 +1,18 @@
+@import "variables";
+
+.search-container {
+  .input-group {
+    .form-control,
+    .dropdown-toggle {
+      background-color: #2c2c2c;
+      color: $color-link;
+      border: 1px solid #373737;
+
+      &:hover,
+      &:focus {
+        border-color: $color-primary;
+        box-shadow: none;
+      }
+    }
+  }
+}

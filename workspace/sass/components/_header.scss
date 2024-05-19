@@ -1,0 +1,26 @@
+@import "variables";
+
+header {
+  background-color: $color-header-bg;
+  padding: 10px 20px;
+
+  .navbar {
+    .navbar-brand {
+      img {
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+      }
+    }
+
+    .nav-link {
+      color: $color-link;
+      font-size: 2rem;
+      font-weight: bold;
+
+      &:hover {
+        color: $color-link-hover;
+      }
+    }
+  }
+}

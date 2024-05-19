@@ -1,5 +1,5 @@
 <div id="movies-container" class="content-container" data-attribute="movies">
-    <h2 class="content-title">Movies</h2>
+    <h2 class="content-title"><a href="#" class="text-white me-2"><i class="fa fa-film" aria-hidden="true"></i></a> Movies</h2>
     <div id="temp-movies-list" class="temp-content-list"></div>
     <div id="movies-content-list" class=" content-list" data-type="movies" data-page="1">
         <?php
