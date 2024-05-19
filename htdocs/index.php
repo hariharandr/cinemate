@@ -7,7 +7,7 @@ require_once 'src/load.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cinemate - Your mate to find best Movies, TV Shows, and Celebse</title>
+    <title>Cinemate - Your mate to find best Movies, TV Shows, and Celebs</title>
     <link rel="apple-touch-icon" href="./assets/cinimate-logo.webp">
     <link rel="icon" type="image/png" href="./assets/cinimate-logo.webp">
     <!-- Own Custom CSS -->
@@ -25,6 +25,8 @@ require_once 'src/load.php';
         <?php loadTemplate('/cast/casts'); ?>
     </div>
     <? loadTemplate('footer'); ?>
+
+    <!-- Custom JS file -->
     <script src="./js/app.js"></script>
     <!-- Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>

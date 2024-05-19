@@ -13,6 +13,7 @@ Cinemate is a web application designed to demonstrate API integration and UI dev
 - **Search Functionality:** Includes a detailed search mechanism that filters movies, episodes, or cast members based on user input.
 - **Advanced CSS Handling:** Leverages SASS for more sophisticated style management, compiled via Grunt tasks.
 - **JavaScript Optimization:** Uses Grunt to concatenate and minify JavaScript files, improving load times and script efficiency.
+- **Caching:** Uses local .json caching on data found, implemented on the ContentManger.class.php file.
 
 ## Limitations
 
