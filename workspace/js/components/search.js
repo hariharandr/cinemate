@@ -4,12 +4,13 @@ $(document).ready(function () {
     $('#search-input').on('input', function () {
         const searchTerm = $(this).val();
         const searchType = $('.dropdown-toggle').text().trim().toLowerCase();
-        console.log(searchTerm, searchType);
+        // console.log(searchTerm, searchType);
         // Min length of search term
         if (searchTerm.length >= 3) {
             // Showing load animation and hide=ing current content
             $('.main-container').each(function () {
                 $(this).find(`#${searchType}-content-list`).hide(); // .content-list for its contents
+                $(this).find('no-results').remove();
                 if ($(`#temp-${searchType}-list`).find('.spinner-border').length === 0) {
                     $(`#temp-${searchType}-list`).append(`<div class="spinner-border text-light" role="status">
                     <span class="visually-hidden">Loading...</span>
@@ -56,6 +57,7 @@ $(document).ready(function () {
                     if (data.trim().length === 0) {
                         container.html('<div class="no-results text-light">No results found!</div>');
                     } else {
+                        $('.no-results').remove();
                         container.html(data);
                     }
                 }
