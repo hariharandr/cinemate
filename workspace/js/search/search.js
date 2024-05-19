@@ -11,7 +11,7 @@ $(document).ready(function () {
             $('.main-container').each(function () {
                 $(this).find(`#${searchType}-content-list`).hide(); // .content-list for its contents
                 if ($(`#temp-${searchType}-list`).find('.spinner-border').length === 0) {
-                    $(`#temp-${searchType}-list`).append(`<div class="spinner-border" role="status">
+                    $(`#temp-${searchType}-list`).append(`<div class="spinner-border text-light" role="status">
                     <span class="visually-hidden">Loading...</span>
                   </div>`); // loader element
                 }
@@ -54,7 +54,7 @@ $(document).ready(function () {
                     // Target specific container based on type
                     const container = $(`#temp-${type}-list`);
                     if (data.trim().length === 0) {
-                        container.html('<div class="no-results">No results found!</div>');
+                        container.html('<div class="no-results text-light">No results found!</div>');
                     } else {
                         container.html(data);
                     }

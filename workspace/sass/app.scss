@@ -1,17 +1,23 @@
 @import "normalize/normalize.scss";
+@import "breakpoints.scss";
 
 body {
-  background-color: #121212;
-  color: #e0e0e0;
+  background-color: #000 !important;
+  color: #121212 !important;
   font-family: "Arial", sans-serif;
 }
 
 header {
-  background-color: #1f1f1f;
+  background-color: #121212 !important;
+  padding: 10px 20px;
   .navbar {
     .navbar-brand {
       img {
         height: 40px;
+      }
+      .nav-link {
+        font-size: 2rem; // Larger text for the title
+        font-weight: bold; // Make it bold
       }
     }
 
@@ -23,12 +29,40 @@ header {
     }
 
     .search-container {
+      width: 100%;
+      @include lg {
+        width: 50%; // Search container takes half of the space
+        margin-left: 1rem;
+      }
+      margin-top: 10px; // Added top margin
       .input-group {
+        .form-control {
+          margin-left: 5px;
+        }
+        .form-control {
+          width: 70%; // Search input takes more space
+        }
+
+        .dropdown-toggle {
+          width: 30%;
+        }
+
+        @include lg {
+          .dropdown-toggle {
+            width: 20%;
+          }
+
+          .form-control {
+            width: 50%; // Search input takes more space
+          }
+        }
+
         .dropdown-menu {
           .dropdown-item {
             color: #e0e0e0;
           }
         }
+
         .form-control,
         .dropdown-toggle {
           background-color: #2c2c2c;
@@ -66,6 +100,13 @@ header {
         }
       }
     }
+
+    .navbar-toggler {
+      border: none;
+      &:focus {
+        box-shadow: none;
+      }
+    }
   }
 }
 
@@ -90,9 +131,12 @@ footer {
 .content-container {
   padding: 20px;
   margin-bottom: 30px;
-  border-radius: 10px; // Rounded corners
+  border-radius: 40px; // Rounded corners
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5), 0 6px 20px rgba(0, 0, 0, 0.19); // Dual-layer shadow for depth
-
+  border: 2px solid #444; // Border around the container
+  .content-title {
+    color: #fff;
+  }
   .content-list,
   .temp-content-list {
     display: grid;
