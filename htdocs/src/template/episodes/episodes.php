@@ -2,7 +2,7 @@
     <h2 class="content-title">TV Episodes</h2>
     <div id="temp-episodes-list" class="temp-content-list"></div>
 
-    <div class="episodes-list content-list">
+    <div id="episodes-content-list" class="episodes-list content-list" data-type="episodes" data-page="1">
         <?php
         $episodes = ContentManager::getEpisodes();
         foreach ($episodes as $episode) : ?>

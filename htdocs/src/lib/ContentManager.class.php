@@ -35,7 +35,7 @@ class ContentManager
     }
 
 
-    public static function searchMoview($search_term = '', $type = 'all', $page = 1, $limit = 10)
+    public static function searchMovie($search_term = '', $type = 'all', $page = 1, $limit = 10)
     {
         if (empty($search_term)) {
             return ['error' => 'Search term is required'];

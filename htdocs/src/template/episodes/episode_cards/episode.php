@@ -1,4 +1,3 @@
-<!-- Episodes Item Card -->
 <div class="episode_card card mb-3">
     <div class="card-body">
         <h5 class="card-title"><?= htmlspecialchars($episode['primaryTitle']); ?></h5>
